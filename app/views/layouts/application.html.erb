@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>KHSuite | <%= @title %></title>
-    <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "application" %>
+    <title><%= title %></title>
+    <%= stylesheet_link_tag    'application' %>
+    <%= javascript_include_tag 'application' %>
+    <%= stylesheet_link_tag    'blueprint/screen', :media => 'screen' %>
+    <%= stylesheet_link_tag    'blueprint/print',  :media => 'print' %>
     <%= csrf_meta_tags %>
   </head>
   <body>
