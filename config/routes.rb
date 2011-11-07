@@ -1,13 +1,18 @@
 KHSuite::Application.routes.draw do
-  get "pages/home"
-
-  get "pages/contact"
-
-  get "pages/about"
-
-  get "pages/tools"
-
-  get "pages/khplanner"
+  scope "(:locale)", :locale => /de|en/ do
+    match '/:locale'   => 'pages#home'
+    root :to           => 'pages#home'
+    match '/contact'   => 'pages#contact'
+    match '/about'     => 'pages#about'
+    match '/help'      => 'pages#help'
+    match '/tools'     => 'pages#tools'
+    match '/khplanner' => 'pages#khplanner'
+  end
+    get "pages/contact"
+    get "pages/about"
+    get "pages/help"
+    get "pages/tools"
+    get "pages/khplanner"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
