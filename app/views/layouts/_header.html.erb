@@ -10,7 +10,7 @@
       <li><%= link_to t('link_signup'), signup_path %></li>
     </ul>
   </nav>
-  <% if false %>
+  <% if !Rails.env.test? %>
   <nav class="localization round">
     <ul>
       <li><%= t('link_localization') %>:</li>
