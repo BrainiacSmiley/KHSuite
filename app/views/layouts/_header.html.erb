@@ -1,0 +1,28 @@
+<header>
+  <%= link_to logo, root_path %>
+  <nav class="round">
+    <ul>
+      <li><%= link_to t('link_home'), root_path %></li>
+      <li><%= link_to t('link_help'), help_path %></li>
+      <li><%= link_to t('link_tools'), tools_path %></li>
+      <li><%= link_to t('link_signin'), '#' %></li>
+      <li><%= t('link_or') %></li>
+      <li><%= link_to t('link_signup'), signup_path %></li>
+    </ul>
+  </nav>
+  <% if false %>
+  <nav class="localization round">
+    <ul>
+      <li><%= t('link_localization') %>:</li>
+      <li><%= language_link "DE", "de" %></li>
+      <li><%= language_link "EN", "en" %></li>
+    </ul>
+  </nav>
+  <% end %>
+  <nav class="toolsbar round">
+    <ul>
+      <li><%= t('tools_bar_description') %>:</li>
+      <li><%= link_to t('link_khplanner'), khplanner_path %></li>
+    </ul>
+  </nav>
+</header>
