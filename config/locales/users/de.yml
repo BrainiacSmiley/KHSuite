@@ -1,2 +1,16 @@
-de:
-  title_user_new: "Registrieren"
+﻿de:
+  title_user_new:            "Registrieren"
+  new_user_password:         "Passwort"
+  new_user_confirmation:     "Passwort wiederholen"
+  errors_title_user:         "verhindern, das dieser User gespeichert wird"
+  errors_with_fields:        "Es gab Fehler in folgenden Feldern"
+  error:                     "Fehler"
+  flash_user_create_success: "Willkommen in der KHSuite"
+
+  errors:
+    format: "%{attribute} %{message}"
+    messages: &errors_messages
+      blank:    "muss eingetragen werden"
+      invalid:  "ist ungülltig"
+      too_long:  "ist zu lang (nicht mehr als %{count} Zeichen)"
+      too_short: "ist zu kurz (nicht weniger als %{count} Zeichen)"

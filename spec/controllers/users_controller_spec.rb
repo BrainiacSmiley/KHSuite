@@ -6,6 +6,64 @@ describe UsersController do
   I18n.available_locales.each do |locale|
     I18n.locale = locale
     
+    describe "POST 'create' " do
+      describe "success" do
+        before(:each) do
+          @attr = {
+            :name => "New User",
+            :email => "user@example.com",
+            :password => "foobar",
+            :password_confirmation => "foobar"
+          }
+        end
+        
+        it "should create a user" do
+          lambda do
+            post :create, :user => @attr
+          end.should change(User, :count).by(1)
+        end
+        
+        it "should redirect to the user show page" do
+          post :create, :user => @attr
+          response.should redirect_to(user_path(assigns(:user)))
+        end
+        
+        it "should have a welcome message" do
+          post :create, :user => @attr
+          flash[:success] =~ /I18n.t(:flash_user_create_success)/n
+        end
+      end
+      
+      describe "failure" do
+        before(:each) do
+          @attr = {
+            :name => "",
+            :email => "",
+            :password => "",
+            :password_confirmation => ""
+          }
+        end
+        
+        it "should not create a user" do
+          lambda do
+            post :create, :user => @attr
+          end.should_not change(User, :count)
+        end
+        
+        before(:each) do
+          post :create, :user => @attr
+        end
+        
+        it "should have the right title" do
+          response.should have_selector('title', :content => I18n.t(:title_user_new))
+        end
+        
+        it "should render the 'new' page" do
+          response.should render_template('new')
+        end
+      end
+    end
+    
     describe "GET 'show'" do
       before(:each) do
         @user = Factory(:user)
@@ -31,7 +89,7 @@ describe UsersController do
 
     describe "GET 'new'" do
       before(:each) do
-        get 'new'
+        get :new
       end
     
       it "should be successful" do
