@@ -16,6 +16,8 @@ class UsersController < ApplicationController
       redirect_to @user
     else
       @title = t(:title_user_new)
+      @user.password = ""
+      @user.password_confirmation = ""
       render 'new'
     end
   end

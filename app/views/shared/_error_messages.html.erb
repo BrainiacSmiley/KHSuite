@@ -1,6 +1,6 @@
 <% if @user.errors.any? %>
   <div id="error_explanation">
-    <h2><%= I18n.locale == 'en' ? pluralize(@user.errors.count, t(:error)) : @user.errors.count.to_s + " " + t(:error) %> 
+    <h2><%= I18n.locale == 'en' ? pluralize(@user.errors.count, t(:error)) : "#{@user.errors.count} #{t(:error)}" %> 
         <%= t(:errors_title_user) %>:</h2>
     <p><%= t(:errors_with_fields) %>:</p>
     <ul>
