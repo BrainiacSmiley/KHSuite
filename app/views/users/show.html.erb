@@ -1,6 +1,13 @@
-<%= @user.name %>,
-<%= @user.email %>
-<%= image_tag(@user.avatar) %>
-<%= @user.level %>
-<%= @user.server %>
-<%= @user.av %>
+<table class="profile" summary="Profile information">
+  <tr>
+    <td class="main">
+      <h1>
+        <%= @user.name %>
+      </h1>
+    </td>
+    <td class="sidebar round">
+      <strong>Name</strong> <%= @user.name %><br />
+      <strong>URL</strong>  <%= link_to user_path(@user), @user %>
+    </td>
+  </tr>
+</table>
