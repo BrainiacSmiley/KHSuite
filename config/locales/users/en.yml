@@ -1,7 +1,7 @@
 en:
   title_user_new:            "Sign up"
-  new_user_password:         "Password"
-  new_user_confirmation:     "Confirmation"
+  password:                  "Password"
+  password_confirmation:     "Confirmation"
   errors_title_user:         "prohibited this user from being saved"
   errors_with_fields:        "There were problems with the following fields"
   error:                     "error"

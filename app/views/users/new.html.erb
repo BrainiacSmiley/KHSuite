@@ -11,11 +11,11 @@
     <%= f.text_field :email %>
   </div>
   <div class="field">
-    <%= f.label :password %><br />
+    <%= f.label :password, t(:password) %><br />
     <%= f.password_field :password %>
   </div>
   <div class="field">
-    <%= f.label :password_confirmation, t(:new_user_confirmation) %><br />
+    <%= f.label :password_confirmation, t(:password_confirmation) %><br />
     <%= f.password_field :password_confirmation %>
   </div>
   <div class="actions">

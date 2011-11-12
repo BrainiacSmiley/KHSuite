@@ -56,5 +56,28 @@ describe "LayoutLinks" do
       click_link I18n.t(:link_signup)
       response.should have_selector('title', :content => I18n.t(:title_user_new))
     end
+
+    describe "when not signed in" do
+      it "should have a signin link" do
+        visit root_path
+        response.should have_selector('a', :href => "/#{I18n.locale}#{signin_path}", :content => I18n.t(:link_signin))
+      end
+    end
+
+    describe "when signed in" do
+      before(:each) do
+        @user = Factory(:user)
+        integration_sign_in(@user)
+        visit root_path
+      end
+
+      it "should have a signout link" do
+        response.should have_selector('a', :href => "/#{I18n.locale}#{signout_path}", :content => I18n.t(:link_signout))
+      end
+
+      it "should have a profile link" do
+        response.should have_selector('a', :href => user_path(I18n.locale, @user), :content => I18n.t(:link_profile))
+      end
+    end
   end
 end

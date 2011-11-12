@@ -5,9 +5,14 @@
       <li><%= link_to t('link_home'), root_path %></li>
       <li><%= link_to t('link_help'), help_path %></li>
       <li><%= link_to t('link_tools'), tools_path %></li>
-      <li><%= link_to t('link_signin'), '#' %></li>
-      <li><%= t('link_or') %></li>
-      <li><%= link_to t('link_signup'), signup_path %></li>
+      <% if signed_in? %>
+        <li><%= link_to t('link_profile'), current_user %></li>
+        <li><%= link_to t('link_signout'), signout_path, :method => :delete %></li>
+      <% else %>
+        <li><%= link_to t('link_signin'), signin_path %></li>
+        <li><%= t('link_or') %></li>
+        <li><%= link_to t('link_signup'), signup_path %></li>
+      <% end %>
     </ul>
   </nav>
   <% if !Rails.env.test? %>

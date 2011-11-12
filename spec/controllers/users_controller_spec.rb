@@ -32,6 +32,11 @@ describe UsersController do
           post :create, :user => @attr
           flash[:success] =~ /I18n.t(:flash_user_create_success)/n
         end
+        
+        it "should sign the user in" do
+          post :create, :user => @attr
+          controller.should be_signed_in
+        end
       end
       
       describe "failure" do

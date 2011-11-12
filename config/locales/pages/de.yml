@@ -14,5 +14,7 @@ de:
   link_contact:          "Kontakt"
   link_tools:            "Tools"
   link_khplanner:        "KHPlanner"
+  link_signout:          "Ausloggen"
+  link_profile:          "Profil"
   tools_bar_description: "Tools"
   link_localization:     "Sprache"

@@ -1,7 +1,7 @@
 ﻿de:
   title_user_new:            "Registrieren"
-  new_user_password:         "Passwort"
-  new_user_confirmation:     "Passwort wiederholen"
+  password:                  "Passwort"
+  password_confirmation:     "Passwort wiederholen"
   errors_title_user:         "verhindern, das dieser User gespeichert wird"
   errors_with_fields:        "Es gab Fehler in folgenden Feldern"
   error:                     "Fehler"
