@@ -6,9 +6,6 @@
       <li><%= link_to t('link_help'), help_path %></li>
       <li><%= link_to t('link_tools'), tools_path %></li>
       <% if signed_in? %>
-        <% if current_user.admin? %>
-          <li><%= link_to t('link_userlist'), users_path %></li>
-        <% end %>
         <li><%= link_to t('link_profile'), current_user %></li>
         <li><%= link_to t('link_settings'), edit_user_path(current_user) %></li>
         <li><%= link_to t('link_signout'), signout_path, :method => :delete %></li>
@@ -19,8 +16,24 @@
       <% end %>
     </ul>
   </nav>
+  <% if signed_in? && current_user.admin? %>
+  <nav class="adminbar round">
+    <ul>
+      <li>Admin: </li>
+      <li><%= link_to t('link_userlist'), users_path %></li>
+    </ul>
+  </nav>
+  <% end %>
   <% if !Rails.env.test? %>
-  <nav class="localization round">
+  <% if signed_in? %>
+    <% if current_user.admin? %>
+      <nav class="localizationadmin round">
+    <% else %>
+      <nav class="localization round">
+    <% end %>
+  <% else %>
+    <nav class="localization round">
+  <% end %>
     <ul>
       <li><%= t('link_localization') %>:</li>
       <li><%= language_link "DE", "de" %></li>

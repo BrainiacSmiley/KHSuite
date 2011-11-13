@@ -136,7 +136,25 @@ footer nav {
   margin-bottom: -3px;
 }
 
+/* localication admin nav bar */
+.localizationadmin {
+  text-align: right;
+  margin-top: -75px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: -3px;
+}
+
 /* localzation flags */
 .flags {
   padding: 0px;
+}
+
+/* admin nav bar */
+.adminbar {
+  text-align: right;
+  margin-top: -105px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: -3px;
 }
