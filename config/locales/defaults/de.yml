@@ -223,3 +223,7 @@
 
       full_messages:
         format: "%{attribute} %{message}"
+
+  will_paginate:
+    next_label:     "Nächste Seite &#8594;"
+    previous_label: "&#8592; Vorherige Seite"

@@ -65,18 +65,40 @@ describe "LayoutLinks" do
     end
 
     describe "when signed in" do
-      before(:each) do
-        @user = Factory(:user)
-        integration_sign_in(@user)
-        visit root_path
-      end
+      describe "no admin user" do
+        before(:each) do
+          @user = Factory(:user)
+          integration_sign_in(@user)
+          visit root_path
+        end
+  
+        it "should have a signout link" do
+          response.should have_selector('a', :href => "/#{I18n.locale}#{signout_path}", :content => I18n.t(:link_signout))
+        end
+  
+        it "should have a profile link" do
+          response.should have_selector('a', :href => user_path(I18n.locale, @user), :content => I18n.t(:link_profile))
+        end
+        
+        it "should have a profile edit link" do
+          response.should have_selector('a', :href => edit_user_path(I18n.locale, @user), :content => I18n.t(:link_settings))
+        end
 
-      it "should have a signout link" do
-        response.should have_selector('a', :href => "/#{I18n.locale}#{signout_path}", :content => I18n.t(:link_signout))
+        it "should not have a Users link" do
+          response.should_not have_selector('a', :href => "/#{I18n.locale}#{users_path}", :content => I18n.t(:link_userlist))
+        end
       end
-
-      it "should have a profile link" do
-        response.should have_selector('a', :href => user_path(I18n.locale, @user), :content => I18n.t(:link_profile))
+      
+      describe "admin user" do
+        before(:each) do
+          admin = Factory(:user, :email => "admin@example.com", :admin => true)
+          integration_sign_in(admin)
+          visit root_path
+        end
+        
+        it "should have a Users link" do
+          response.should have_selector('a', :href => "/#{I18n.locale}#{users_path}", :content => I18n.t(:link_userlist))
+        end
       end
     end
   end

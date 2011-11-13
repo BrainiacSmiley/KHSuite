@@ -1,3 +1,5 @@
 en:
   title_signin:                 "Sign in"
+  question_new:                 "New user"
+  button_signin:                "Sign in"
   flash_session_create_failure: "Invalid email/password combination."

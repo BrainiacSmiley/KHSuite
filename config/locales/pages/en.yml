@@ -16,5 +16,7 @@ en:
   link_khplanner:        "KHPlanner"
   link_signout:          "Sign out"
   link_profile:          "Profile"
+  link_settings:         "Settings"
+  link_userlist:         "Users"
   tools_bar_description: "Tools"
   link_localization:     "Language"

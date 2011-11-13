@@ -5,6 +5,10 @@ Factory.define :user do |user|
   user.password_confirmation "foobar"
 end
 
+Factory.sequence :email do |n|
+  "person-#{n}@example.com"
+end
+
 Factory.define :doctor do |doctor|
   doctor.name   "Prof.Dr.Brainiac"
   doctor.avatar "http://portraits.kapihospital.de/users/3/3220505bba8933555b772d759d9e83a5_m.png"
