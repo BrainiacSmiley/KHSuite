@@ -4,7 +4,7 @@ en:
   title_user_all:			  "All users"
   password:                   "Password"
   password_confirmation:      "Confirmation"
-  errors_title:               "prohibited this %{object} from being saved"
+  errors_title:               "prohibited this %{error_object} from being saved"
   errors_with_fields:         "There were problems with the following fields"
   error:                      "error"
   button_update:              "Update"
@@ -16,4 +16,4 @@ en:
   missing_rights:             "Not enough access rights for this action."
   paginate_test_prev:         "Previous"
   paginate_test_next:         "Next"
-
+  doctor_creation:            "Created %{ago} ago."

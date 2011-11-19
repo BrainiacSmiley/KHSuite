@@ -29,6 +29,29 @@ describe User do
     }
   end
   
+  describe "doctor association" do
+    before(:each) do
+      @user = User.create(@attr)
+      @doc1 = Factory(:doctor, :user => @user, :server => 8)
+      @doc2 = Factory(:doctor, :user => @user, :server => 1)
+    end
+    
+    it "should hava a doctors attribute" do
+      @user.should respond_to(:doctors)
+    end
+    
+    it "should have the right doctors in the right order" do
+      @user.doctors.should == [@doc2, @doc1]
+    end
+    
+    it "should destroy associated doctors" do
+      @user.destroy
+      [@doc1, @doc2].each do |doctor|
+        Doctor.find_by_id(doctor.id).should be_nil
+      end
+    end
+  end
+  
   describe "admin attribute" do
     before(:each) do
       @user = User.create!(@attr)

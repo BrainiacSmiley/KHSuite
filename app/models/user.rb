@@ -5,6 +5,10 @@
 #  id                 :integer         not null, primary key
 #  name               :string(255)
 #  email              :string(255)
+#  avatar             :string(255)     default("http://portraits.kapihospital.de/users/3/3220505bba8933555b772d759d9e83a5_m.png")
+#  level              :integer         default(1)
+#  server             :integer
+#  av                 :string(255)
 #  encrypted_password :string(255)
 #  salt               :string(255)
 #  remember_token     :string(255)
@@ -18,6 +22,8 @@ require 'digest'
 class User < ActiveRecord::Base
   attr_accessor :password
   attr_accessible :name, :email, :password, :password_confirmation
+  
+  has_many :doctors, :dependent => :destroy
   
   email_regex  = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   

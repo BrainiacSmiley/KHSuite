@@ -1,13 +1,26 @@
 <table class="profile" summary="Profile information">
   <tr>
     <td class="main">
-      <h1>
-        <%= @user.name %>
-      </h1>
+      <% if @newdoctor %>
+        <%= render 'shared/doctor_new' %>
+      <% elsif @editdoctor %>
+        <%= render 'shared/doctor_edit' %>
+      <% else %>
+        <%= render 'users/user_main' %>
+      <% end %>
     </td>
     <td class="sidebar round">
-      <strong>Name</strong> <%= @user.name %><br />
-      <strong>URL</strong>  <%= link_to user_path(@user), @user %>
+      <strong>Name:</strong> <%= @user.name %><br />
+      <strong>URL:</strong>  <%= link_to user_path(@user), @user %><br />
+      <strong><%= t(:doctors) %>:</strong>  <%= @user.doctors.count %>&nbsp;
+          <%= link_to t(:link_doctor_new), new_doctor_path %>
+      <% unless @user.doctors.empty? %>
+        <table class="doctors" summary="User doctors">
+          <% @doctors.each do |doctor| %>
+            <%= render 'doctors/doctors_badge', :doctor => doctor %>
+          <% end %>
+        </table>
+      <% end %>
     </td>
   </tr>
 </table>

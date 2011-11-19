@@ -7,7 +7,7 @@ describe "Users" do
     describe "sign in/out" do
       describe "failure" do
         it "should not sign a user in" do
-        integration_sign_in(User.new())
+          integration_sign_in(User.new())
           response.should have_selector("div.flash.error", :content => I18n.t(:flash_session_create_failure))
         end
       end

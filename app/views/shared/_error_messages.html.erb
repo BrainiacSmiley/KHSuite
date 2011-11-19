@@ -1,10 +1,10 @@
 <% if object.errors.any? %>
   <div id="error_explanation">
-    <h2><%= I18n.locale == 'en' ? pluralize(object.errors.count, t(:error)) : "#{@user.errors.count} #{t(:error)}" %> 
-        <%= t(:errors_title, :object => object.class.to_s.underscore.humanize.downcase) %>:</h2>
+    <h2><%= I18n.locale == 'en' ? pluralize(object.errors.count, t(:error)) : "#{object.errors.count} #{t(:error)}" %> 
+        <%= t(:errors_title, :error_object => object.class.to_s.underscore.humanize.downcase) %>:</h2>
     <p><%= t(:errors_with_fields) %>:</p>
     <ul>
-    <% @user.errors.full_messages.each do |msg| %>
+    <% object.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
     <% end %>
     </ul>
