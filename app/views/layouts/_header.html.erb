@@ -16,36 +16,4 @@
       <% end %>
     </ul>
   </nav>
-  <% if signed_in? && current_user.admin? %>
-  <nav class="adminbar round">
-    <ul>
-      <li>Admin: </li>
-      <li><%= link_to t('link_userlist'), users_path %></li>
-      <li><%= link_to t('link_doctorlist'), doctors_path %></li>
-    </ul>
-  </nav>
-  <% end %>
-  <% if !Rails.env.test? %>
-  <% if signed_in? %>
-    <% if current_user.admin? %>
-      <nav class="localizationadmin round">
-    <% else %>
-      <nav class="localization round">
-    <% end %>
-  <% else %>
-    <nav class="localization round">
-  <% end %>
-    <ul>
-      <li><%= t('link_localization') %>:</li>
-      <li><%= language_link "DE", "de" %></li>
-      <li><%= language_link "EN", "en" %></li>
-    </ul>
-  </nav>
-  <% end %>
-  <nav class="toolsbar round">
-    <ul>
-      <li><%= t('tools_bar_description') %>:</li>
-      <li><%= link_to t('link_khplanner'), khplanner_path %></li>
-    </ul>
-  </nav>
 </header>

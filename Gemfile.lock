@@ -7,6 +7,7 @@ GIT
 GEM
   remote: http://rubygems.org/
   specs:
+    ZenTest (4.5.0)
     actionmailer (3.1.1)
       actionpack (= 3.1.1)
       mail (~> 2.3.0)
@@ -36,6 +37,10 @@ GEM
     activesupport (3.1.1)
       multi_json (~> 1.0)
     arel (2.2.1)
+    autotest (4.4.6)
+      ZenTest (>= 4.4.1)
+    autotest-rails (4.1.1)
+      ZenTest (= 4.5)
     builder (3.0.0)
     coffee-script (2.2.0)
       coffee-script-source
@@ -138,6 +143,8 @@ PLATFORMS
 
 DEPENDENCIES
   annotate!
+  autotest
+  autotest-rails
   coffee-script
   factory_girl_rails
   faker
