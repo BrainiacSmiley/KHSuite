@@ -24,15 +24,14 @@ class DoctorsController < ApplicationController
   
   def edit
     find_needed_values
-    @title = t(:title_doctor_edit)
+    @title = "#{@user.name} - #{@doctor.name} #{t(:title_doctor_edit)}"
     @editdoctor = true;
     render 'users/show'
   end
   
   def new
     find_needed_values
-
-    @title = t(:title_doctor_new)
+    @title = "#{@user.name} - #{t(:title_doctor_new)}"
     @newdoctor = true;
     @doctor = Doctor.new
     render 'users/show'

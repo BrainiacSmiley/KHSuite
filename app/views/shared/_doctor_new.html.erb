@@ -1,7 +1,7 @@
-<h1><%= "#{@user.name} - #{t(:title_doctor_new)}" %></h1>
 <%= form_for @doctor do |f| %>
   <%= render 'shared/doctor_fields', :f => f %>
   <div class="actions">
-    <%= f.submit t(:button_doctor_new) %>
+    <%= f.submit t(:button_doctor_new), :class => "btn primary" %>&nbsp;
+    <button type="reset" class="btn" style="margin-right:30px;"><%= t(:button_cancel) %></button>
   </div>
 <% end %>

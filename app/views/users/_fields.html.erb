@@ -1,17 +1,4 @@
-<%= render 'shared/error_messages', :object => f.object %>
-<div class="field">
-  <%= f.label :name %><br />
-  <%= f.text_field :name %>
-</div>
-<div class="field">
-  <%= f.label :email %><br />
-  <%= f.text_field :email %>
-</div>
-<div class="field">
-  <%= f.label :password, t(:password) %><br />
-  <%= f.password_field :password %>
-</div>
-<div class="field">
-  <%= f.label :password_confirmation, t(:password_confirmation) %><br />
-  <%= f.password_field :password_confirmation %>
-</div>
+<%= bootstrap_formular_field(f, :name, :text_field) %>
+<%= bootstrap_formular_field(f, :email, :text_field) %>
+<%= bootstrap_formular_field(f, :password, :password_field, :fieldname => t(:password)) %>
+<%= bootstrap_formular_field(f, :password, :password_field, :fieldname => t(:password_confirmation)) %>
