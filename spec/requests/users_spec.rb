@@ -8,7 +8,7 @@ describe "Users" do
       describe "failure" do
         it "should not sign a user in" do
           integration_sign_in(User.new())
-          response.should have_selector("div.flash.error", :content => I18n.t(:flash_session_create_failure))
+          response.should have_selector("div.alert-message.error", :content => I18n.t(:flash_session_create_failure))
         end
       end
       
@@ -31,8 +31,8 @@ describe "Users" do
             fill_in "Email",                        :with => "user@example.com"
             fill_in I18n.t(:password),              :with => "foobar"
             fill_in I18n.t(:password_confirmation), :with => "foobar"
-            click_button
-            response.should have_selector("div.flash.success", :content => I18n.t(:flash_user_create_success))
+            click_button I18n.t(:button_user_new)
+            response.should have_selector("div.alert-message.success", :content => I18n.t(:flash_user_create_success))
             response.should render_template('users/show')
           end.should change(User, :count).by(1)
         end
@@ -46,9 +46,9 @@ describe "Users" do
             fill_in "Email",                        :with => ""
             fill_in I18n.t(:password),              :with => ""
             fill_in I18n.t(:password_confirmation), :with => ""
-            click_button
+            click_button I18n.t(:button_user_new)
             response.should render_template('users/new')
-            response.should have_selector("div#error_explanation")
+            response.should have_selector('span', :content => I18n.t('errors.messages.empty'))
           end.should_not change(User, :count)
         end
       end

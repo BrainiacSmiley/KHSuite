@@ -1,9 +1,9 @@
-en:
+﻿en:
   title_home:            "Home"
   title_contact:         "Contact"
   title_about:           "About"
   title_help:            "Help"
-  title_tools:           "Tools"
+  title_tools_overview:  "Tools - Overview"
   title_khplanner:       "KHPlanner"
   link_home:             "Home"
   link_help:             "Help"
@@ -13,6 +13,7 @@ en:
   link_about:            "About"
   link_contact:          "Contact"
   link_tools:            "Tools"
+  link_tools_overview:   "Overview"
   link_khplanner:        "KHPlanner"
   link_signout:          "Sign out"
   link_profile:          "Profile"

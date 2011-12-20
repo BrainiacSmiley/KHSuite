@@ -16,7 +16,7 @@ class PagesController < ApplicationController
   end
 
   def tools
-    @title = t(:title_tools)
+    @title = t(:title_tools_overview)
   end
 
   def khplanner

@@ -7,7 +7,8 @@
   errors_title:               "verhindern, das dieser %{error_object} gespeichert wird"
   errors_with_fields:         "Es gab Fehler in folgenden Feldern"
   error:                      "Fehler"
-  button_update:              "Ändern"
+  button_user_new:            "Registrieren"
+  button_user_update:         "Ändern"
   flash_user_create_success:  "Willkommen in der KHSuite"
   flash_user_edit_success:    "Profil geändert"
   flash_user_deleted_success: "User erfolgreich gelöscht"
@@ -17,6 +18,7 @@
   paginate_test_prev:         "Vorherige"
   paginate_test_next:         "Nächste"
   doctor_creation:            "Erblickte vor %{ago} das Licht der Welt."
+  doctors:                    "Doktoren"
 
   errors:
     format: "%{attribute} %{message}"

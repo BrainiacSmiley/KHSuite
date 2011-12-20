@@ -79,7 +79,7 @@ describe PagesController do
       end
       
       it "should have the right title" do
-        title = @page_title + I18n.t(:title_tools)
+        title = @page_title + I18n.t(:title_tools_overview)
         response.should have_selector('title', :content => title)
       end
     end

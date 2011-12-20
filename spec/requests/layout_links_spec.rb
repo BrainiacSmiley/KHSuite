@@ -26,7 +26,7 @@ describe "LayoutLinks" do
     
     it "should have a Tools page at '/tools'" do
       get '/tools'
-      response.should have_selector('title', :content => I18n.t(:title_tools))
+      response.should have_selector('title', :content => I18n.t(:title_tools_overview))
     end
     
     it "should have a KHPlanner page at '/khplanner'" do
@@ -49,8 +49,8 @@ describe "LayoutLinks" do
       response.should have_selector('title', :content => I18n.t(:title_contact))
       click_link I18n.t(:link_home)
       response.should have_selector('title', :content => I18n.t(:title_home))
-      click_link I18n.t(:link_tools)
-      response.should have_selector('title', :content => I18n.t(:title_tools))
+      click_link I18n.t(:link_tools_overview)
+      response.should have_selector('title', :content => I18n.t(:title_tools_overview))
       click_link I18n.t(:link_khplanner)
       response.should have_selector('title', :content => I18n.t(:title_khplanner))
       click_link I18n.t(:link_signup)
@@ -58,9 +58,10 @@ describe "LayoutLinks" do
     end
 
     describe "when not signed in" do
-      it "should have a signin link" do
+      it "should have a signin posiibility" do
         visit root_path
-        response.should have_selector('a', :href => "/#{I18n.locale}#{signin_path}", :content => I18n.t(:link_signin))
+        response.should have_selector("input[name='session[email]'][type='text']")
+        response.should have_selector("input[name='session[password]'][type='password']")
       end
     end
 
@@ -86,6 +87,10 @@ describe "LayoutLinks" do
 
         it "should not have a Users link" do
           response.should_not have_selector('a', :href => "/#{I18n.locale}#{users_path}", :content => I18n.t(:link_userlist))
+        end
+
+        it "should not have a Doctors link" do
+          response.should_not have_selector('a', :href => "/#{I18n.locale}#{doctors_path}", :content => I18n.t(:link_doctorlist))
         end
       end
       

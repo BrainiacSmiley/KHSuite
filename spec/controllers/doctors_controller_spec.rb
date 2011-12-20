@@ -54,7 +54,7 @@ describe DoctorsController do
 
         it "should have an element for each doctor" do
           @doctors[0..5].each do |doctor|
-            response.should have_selector('li', :content => doctor.name)
+            response.should have_selector('td', :content => doctor.name)
           end
         end
 

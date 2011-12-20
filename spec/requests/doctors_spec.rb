@@ -18,7 +18,7 @@ describe "Doctors" do
             fill_in "AV",    :with => "New AV"
             fill_in "Level", :with => 70
             click_button
-            response.should have_selector("div.flash.success", :content => I18n.t(:flash_doctor_creation_success))
+            response.should have_selector('p', :content => I18n.t(:flash_doctor_creation_success))
             response.should render_template('users/show')
           end.should change(Doctor, :count).by(1)
         end
@@ -30,7 +30,7 @@ describe "Doctors" do
             fill_in "Name", :with => ""
             click_button
             response.should render_template('users/show')
-            response.should have_selector("div#error_explanation")
+            response.should have_selector('span', :content => I18n.t('errors.messages.empty'))
           end.should_not change(Doctor, :count)
         end
       end

@@ -88,6 +88,9 @@ module ApplicationHelper
     end
     
     def get_actual_path(localization_string)
+      if (request.env['REQUEST_URI'].nil?)
+        request.env['REQUEST_URI'] = "http://localhost:3000/"
+      end
       if (request.env['REQUEST_URI'].index(/\/(en|de)/n).nil?)
         request.env['REQUEST_URI'] + localization_string
       else
